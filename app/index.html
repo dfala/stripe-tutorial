@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="stripe">
+  <head>
+    <meta charset="utf-8">
+    <title>Stripe Tutorial</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+    <link rel="stylesheet" href="/plugins/alertify.css" media="screen" charset="utf-8">
+    <script src="/plugins/alertify.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body ng-controller="MainController">
+
+    <h4 class="t-center">McApple iWatch</h4>
+    <div class="container">
+
+      <section class="product">
+        <img src="./css/product.jpeg" />
+      </section>
+
+      <section class="payment">
+        <h5>38mm Stainless Steel Case with Saddle Brown Classic Buckle</h5>
+        <h5 class="light">Price: $25,000</h5>
+
+        <div class="form-payment" ng-if="!activeCard">
+          <form>
+            <div class="input-field">
+              <input type="text" id="user-name" ng-model="payment.name">
+              <label for="user-name">Name on Card</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" id="cc-number" ng-model="payment.number" maxlength="16">
+              <label for="cc-number">Credit Card Number</label>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input type="text" id="expiration-month" ng-model="payment.exp_month">
+                <label for="expiration-month">Expiration Month</label>
+              </div>
+
+              <div class="input-field col s6">
+                <input type="text" id="expiration-year" ng-model="payment.exp_year">
+                <label for="expiration-year">Expiration Year</label>
+              </div>
+
+              <div class="input-field col s6">
+                <input type="text" id="cvc" ng-model="payment.cvc"  maxlength="4">
+                <label for="cvc">CVC</label>
+              </div>
+            </div>
+
+
+            <button type="button" class="waves-effect waves-light btn"
+                    ng-click="createCard(payment)">
+                Add Payment Method
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+
+      <section class="card-container" ng-if="activeCard">
+        <div class="card" ng-if="!orderSuccess">
+          <h5> {{activeCard.name}} </h5>
+
+          <div class="last-four">
+            **** - **** - **** - {{activeCard.last4}}
+          </div>
+
+          <h5 class="brand">{{activeCard.brand}}</h5>
+        </div>
+        <button type="button" class="waves-effect waves-light btn"
+                ng-click="chargeCard()" ng-if="!orderSuccess">
+            Process Payment
+        </button>
+
+        <div class="card" ng-if="orderSuccess">
+          <h5>Your order is on it's way!</h5>
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+  </body>
+  <script src="./app.js" charset="utf-8"></script>
+  <script src="./MainController.js" charset="utf-8"></script>
+  <script src="./ApiService.js" charset="utf-8"></script>
+</html>

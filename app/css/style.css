@@ -1,0 +1,77 @@
+body {
+  padding: 20px 0 60px 0;
+  background-color: #eee;
+}
+
+.t-center {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.light {
+  font-weight: 200;
+  margin-bottom: 40px;
+}
+
+.btn {
+  height: 60px;
+  margin-top: 30px;
+}
+
+.form-payment {
+  margin-top: 30px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 20px;
+  box-shadow: 0px 0px 25px 4px rgba(0, 0, 0, 0.05);
+}
+
+div.container {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  overflow: auto;
+  padding-bottom: 30px;
+}
+
+section {
+  float: left;
+  width: 50%;
+  padding: 30px;
+}
+
+section.payment {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+section.product {
+}
+
+  section.product img {
+    width: 100%;
+  }
+
+div.card {
+  background-color: #6699FF;
+  border-radius: 5px;
+  color: #fff;
+  width: 400px;
+  max-width: 100%;
+  padding: 15px 30px;
+}
+
+  .last-four {
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    color: #616161;
+    padding: 15px;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin: 30px 0;
+  }
+
+  .brand {
+    text-transform: uppercase;
+  }

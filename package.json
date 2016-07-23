@@ -1,0 +1,18 @@
+{
+  "name": "stripe-tutorial",
+  "version": "0.0.1",
+  "description": "A simple stripe payment tutorial",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Daniel Falabella",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "stripe": "^4.9.0"
+  }
+}
